@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Zisrf.WorkoutDiary.Core.Domain.Exceptions\Zisrf.WorkoutDiary.Core.Domain.Exceptions.csproj"/>
+    </ItemGroup>
+
+</Project>
