@@ -6,9 +6,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{28FCF329
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{18EC3E32-AA61-4747-BA9A-EBDC5186E788}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{95453879-1AC4-42C8-9548-D76A1F069E9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Domain", "src\core\Domain\Zisrf.WorkoutDiary.Core.Domain\Zisrf.WorkoutDiary.Core.Domain.csproj", "{32941016-47A9-4F80-A22A-F541009A7110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Domain.Exceptions", "src\core\Domain\Zisrf.WorkoutDiary.Core.Domain.Exceptions\Zisrf.WorkoutDiary.Core.Domain.Exceptions.csproj", "{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B} = {18EC3E32-AA61-4747-BA9A-EBDC5186E788}
+		{95453879-1AC4-42C8-9548-D76A1F069E9B} = {B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B}
+		{32941016-47A9-4F80-A22A-F541009A7110} = {95453879-1AC4-42C8-9548-D76A1F069E9B}
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2} = {95453879-1AC4-42C8-9548-D76A1F069E9B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32941016-47A9-4F80-A22A-F541009A7110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32941016-47A9-4F80-A22A-F541009A7110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32941016-47A9-4F80-A22A-F541009A7110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32941016-47A9-4F80-A22A-F541009A7110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
