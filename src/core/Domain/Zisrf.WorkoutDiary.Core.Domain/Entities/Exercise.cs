@@ -14,6 +14,10 @@ public class Exercise
         MuscleGroup = muscleGroup;
     }
 
+    protected Exercise()
+    {
+    }
+
     public Guid Id { get; }
 
     public ExerciseName Name { get; set; }

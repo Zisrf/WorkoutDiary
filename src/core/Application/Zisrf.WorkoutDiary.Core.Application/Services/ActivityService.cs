@@ -16,16 +16,16 @@ internal class ActivityService : IActivityService
         _context = context;
     }
 
-    public async Task<ActivityDto> GetActivityById(Guid activityId, CancellationToken cancellationToken = default)
+    public async Task<ActivityDto> GetActivityByIdAsync(Guid activityId, CancellationToken cancellationToken = default)
     {
         var activity = await _context.Activities.GetByIdAsync(activityId, cancellationToken);
 
         return activity.ToDto();
     }
 
-    public async Task ChangeActivityWorkingWeight(
+    public async Task SetActivityWorkingWeightAsync(
         Guid activityId,
-        int newWorkingWeight,
+        double newWorkingWeight,
         CancellationToken cancellationToken = default)
     {
         var activity = await _context.Activities.GetByIdAsync(activityId, cancellationToken);
@@ -35,7 +35,7 @@ internal class ActivityService : IActivityService
         await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task ChangeActivityRepetitionsCount(
+    public async Task SetActivityRepetitionsCountAsync(
         Guid activityId,
         int newRepetitionsCount,
         CancellationToken cancellationToken = default)

@@ -18,7 +18,7 @@ internal class ExerciseService : IExerciseService
         _context = context;
     }
 
-    public async Task<ExerciseDto> CreateExercise(
+    public async Task<ExerciseDto> CreateExerciseAsync(
         string name,
         string muscleGroup,
         CancellationToken cancellationToken = default)
@@ -35,21 +35,21 @@ internal class ExerciseService : IExerciseService
         return exercise.ToDto();
     }
 
-    public async Task<IReadOnlyCollection<ExerciseDto>> GetExercises(CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyCollection<ExerciseDto>> GetExercisesAsync(CancellationToken cancellationToken = default)
     {
         return await _context.Exercises
             .Select(x => x.ToDto())
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<ExerciseDto> GetExerciseById(Guid exerciseId, CancellationToken cancellationToken = default)
+    public async Task<ExerciseDto> GetExerciseByIdAsync(Guid exerciseId, CancellationToken cancellationToken = default)
     {
         var exercise = await _context.Exercises.GetByIdAsync(exerciseId, cancellationToken);
 
         return exercise.ToDto();
     }
 
-    public async Task ChangeExerciseName(
+    public async Task SetExerciseNameAsync(
         Guid exerciseId,
         string newName,
         CancellationToken cancellationToken = default)
@@ -61,7 +61,7 @@ internal class ExerciseService : IExerciseService
         await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task ChangeExerciseMuscleGroup(
+    public async Task SetExerciseMuscleGroupAsync(
         Guid exerciseId,
         string newMuscleGroup,
         CancellationToken cancellationToken = default)
@@ -73,7 +73,7 @@ internal class ExerciseService : IExerciseService
         await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task RemoveExerciseById(Guid exerciseId, CancellationToken cancellationToken = default)
+    public async Task RemoveExerciseByIdAsync(Guid exerciseId, CancellationToken cancellationToken = default)
     {
         var exercise = await _context.Exercises.GetByIdAsync(exerciseId, cancellationToken);
 

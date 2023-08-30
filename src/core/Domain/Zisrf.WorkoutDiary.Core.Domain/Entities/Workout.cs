@@ -14,6 +14,10 @@ public class Workout
         _activities = new HashSet<Activity>();
     }
 
+    protected Workout()
+    {
+    }
+
     public Guid Id { get; }
 
     public DateOnly Date { get; set; }

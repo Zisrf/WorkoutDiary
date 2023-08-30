@@ -16,6 +16,10 @@ public class Activity
         RepetitionsCount = repetitionsCount;
     }
 
+    protected Activity()
+    {
+    }
+
     public Guid Id { get; }
 
     public virtual Exercise Exercise { get; }

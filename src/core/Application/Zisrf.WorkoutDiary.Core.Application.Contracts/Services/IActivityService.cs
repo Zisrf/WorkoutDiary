@@ -4,14 +4,14 @@ namespace Zisrf.WorkoutDiary.Core.Application.Contracts.Services;
 
 public interface IActivityService
 {
-    Task<ActivityDto> GetActivityById(Guid activityId, CancellationToken cancellationToken = default);
+    Task<ActivityDto> GetActivityByIdAsync(Guid activityId, CancellationToken cancellationToken = default);
 
-    Task ChangeActivityWorkingWeight(
+    Task SetActivityWorkingWeightAsync(
         Guid activityId,
-        int newWorkingWeight,
+        double newWorkingWeight,
         CancellationToken cancellationToken = default);
 
-    Task ChangeActivityRepetitionsCount(
+    Task SetActivityRepetitionsCountAsync(
         Guid activityId,
         int newRepetitionsCount,
         CancellationToken cancellationToken = default);
