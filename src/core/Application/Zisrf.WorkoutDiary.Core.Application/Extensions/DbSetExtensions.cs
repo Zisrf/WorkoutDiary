@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Zisrf.WorkoutDiary.Core.Application.Exceptions.DataAccess;
-using Zisrf.WorkoutDiary.Core.Domain.Entities;
 
 namespace Zisrf.WorkoutDiary.Core.Application.Extensions;
 
@@ -10,9 +9,9 @@ public static class DbSetExtensions
         this DbSet<TEntity> dbSet,
         Guid entityId,
         CancellationToken cancellationToken = default)
-        where TEntity : class, IEntity
+        where TEntity : class
     {
-        var entity = await dbSet.FindAsync(new[] { entityId });
+        var entity = await dbSet.FindAsync(new object?[] { entityId }, cancellationToken);
 
         if (entity is null)
             throw NotFoundException.ForEntity<TEntity>(entityId);

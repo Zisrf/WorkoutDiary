@@ -4,7 +4,7 @@ namespace Zisrf.WorkoutDiary.Core.Domain.Models;
 
 public readonly record struct WorkingWeight
 {
-    public WorkingWeight(int value)
+    public WorkingWeight(double value)
     {
         if (value <= 0)
             throw new InvalidWorkingWeightException();
@@ -12,5 +12,5 @@ public readonly record struct WorkingWeight
         Value = value;
     }
 
-    public int Value { get; }
+    public double Value { get; }
 }

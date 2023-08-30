@@ -2,7 +2,7 @@
 
 namespace Zisrf.WorkoutDiary.Core.Domain.Entities;
 
-public class Exercise : IEntity
+public class Exercise
 {
     public Exercise(
         Guid id,
@@ -14,9 +14,9 @@ public class Exercise : IEntity
         MuscleGroup = muscleGroup;
     }
 
+    public Guid Id { get; }
+
     public ExerciseName Name { get; set; }
 
     public MuscleGroup MuscleGroup { get; set; }
-
-    public Guid Id { get; }
 }

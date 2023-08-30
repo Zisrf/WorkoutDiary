@@ -2,7 +2,7 @@
 
 namespace Zisrf.WorkoutDiary.Core.Domain.Entities;
 
-public class Workout : IEntity
+public class Workout
 {
     private readonly HashSet<Activity> _activities;
 
@@ -14,11 +14,11 @@ public class Workout : IEntity
         _activities = new HashSet<Activity>();
     }
 
+    public Guid Id { get; }
+
     public DateOnly Date { get; set; }
 
     public virtual IReadOnlyCollection<Activity> Activities => _activities;
-
-    public Guid Id { get; }
 
     public void AddActivity(Activity activity)
     {
