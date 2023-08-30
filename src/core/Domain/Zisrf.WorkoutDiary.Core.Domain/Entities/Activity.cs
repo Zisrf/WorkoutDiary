@@ -2,23 +2,26 @@
 
 namespace Zisrf.WorkoutDiary.Core.Domain.Entities;
 
-public class Activity
+public class Activity : IEntity
 {
-    public Activity(Exercise exercise, WorkingWeight workingWeight, RepetitionsCount repetitionsCount)
+    public Activity(
+        Guid id,
+        Exercise exercise,
+        WorkingWeight workingWeight,
+        RepetitionsCount repetitionsCount)
     {
+        Id = id;
         Exercise = exercise;
         WorkingWeight = workingWeight;
         RepetitionsCount = repetitionsCount;
-
-        Id = Guid.NewGuid();
     }
 
-
-    public Guid Id { get; }
-
-    public Exercise Exercise { get; set; }
+    public virtual Exercise Exercise { get; }
 
     public WorkingWeight WorkingWeight { get; set; }
 
     public RepetitionsCount RepetitionsCount { get; set; }
+
+
+    public Guid Id { get; }
 }
