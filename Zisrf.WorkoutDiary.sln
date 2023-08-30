@@ -6,9 +6,104 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{28FCF329
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{18EC3E32-AA61-4747-BA9A-EBDC5186E788}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{95453879-1AC4-42C8-9548-D76A1F069E9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Domain", "src\core\Domain\Zisrf.WorkoutDiary.Core.Domain\Zisrf.WorkoutDiary.Core.Domain.csproj", "{32941016-47A9-4F80-A22A-F541009A7110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Domain.Exceptions", "src\core\Domain\Zisrf.WorkoutDiary.Core.Domain.Exceptions\Zisrf.WorkoutDiary.Core.Domain.Exceptions.csproj", "{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{B3B69260-7D9F-476B-9F68-61D9BB12CEF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Application.Contracts", "src\core\Application\Zisrf.WorkoutDiary.Core.Application.Contracts\Zisrf.WorkoutDiary.Core.Application.Contracts.csproj", "{ACD4F82A-FFBC-438D-BFE9-2494577ED745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Application", "src\core\Application\Zisrf.WorkoutDiary.Core.Application\Zisrf.WorkoutDiary.Core.Application.csproj", "{489EDD0C-6075-4080-B3F3-716AFB16F8A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{686586B3-EB84-4C95-BB95-AB363BD546B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.DataAccess.Abstractions", "src\core\Application\Abstractions\Zisrf.WorkoutDiary.Core.DataAccess.Abstractions\Zisrf.WorkoutDiary.Core.DataAccess.Abstractions.csproj", "{57549C16-6147-4CA7-865C-CE69F2855A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Application.Exceptions", "src\core\Application\Zisrf.WorkoutDiary.Core.Application.Exceptions\Zisrf.WorkoutDiary.Core.Application.Exceptions.csproj", "{5984F018-2D68-4A45-86E9-5C7384DB1526}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E78202D1-2C2F-4947-8735-BEB74C97EF64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Tests.Console", "tests\Zisrf.WorkoutDiary.Tests.Console\Zisrf.WorkoutDiary.Tests.Console.csproj", "{AABE4B51-3E5B-4470-9558-AD05D7336B62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D16E1BCE-0061-44E5-BE3F-BAA41AFF006A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.DataAccess", "src\core\Infrastructure\Zisrf.WorkoutDiary.Core.DataAccess\Zisrf.WorkoutDiary.Core.DataAccess.csproj", "{DBFD6428-7138-410F-980E-20F0D6B6A843}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{E5C5961D-F950-4437-96B4-80D274DDED93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Application.Tests", "tests\core\Zisrf.WorkoutDiary.Core.Application.Tests\Zisrf.WorkoutDiary.Core.Application.Tests.csproj", "{1D2F543C-45FA-496E-8710-E9123B8A1543}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{42625A8A-4959-44F9-9BE2-3B73973BA23D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet-build.yml = .github\workflows\dotnet-build.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B} = {18EC3E32-AA61-4747-BA9A-EBDC5186E788}
+		{95453879-1AC4-42C8-9548-D76A1F069E9B} = {B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B}
+		{32941016-47A9-4F80-A22A-F541009A7110} = {95453879-1AC4-42C8-9548-D76A1F069E9B}
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2} = {95453879-1AC4-42C8-9548-D76A1F069E9B}
+		{B3B69260-7D9F-476B-9F68-61D9BB12CEF9} = {B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B}
+		{ACD4F82A-FFBC-438D-BFE9-2494577ED745} = {B3B69260-7D9F-476B-9F68-61D9BB12CEF9}
+		{489EDD0C-6075-4080-B3F3-716AFB16F8A5} = {B3B69260-7D9F-476B-9F68-61D9BB12CEF9}
+		{686586B3-EB84-4C95-BB95-AB363BD546B1} = {B3B69260-7D9F-476B-9F68-61D9BB12CEF9}
+		{57549C16-6147-4CA7-865C-CE69F2855A5E} = {686586B3-EB84-4C95-BB95-AB363BD546B1}
+		{5984F018-2D68-4A45-86E9-5C7384DB1526} = {B3B69260-7D9F-476B-9F68-61D9BB12CEF9}
+		{AABE4B51-3E5B-4470-9558-AD05D7336B62} = {E78202D1-2C2F-4947-8735-BEB74C97EF64}
+		{D16E1BCE-0061-44E5-BE3F-BAA41AFF006A} = {B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B}
+		{DBFD6428-7138-410F-980E-20F0D6B6A843} = {D16E1BCE-0061-44E5-BE3F-BAA41AFF006A}
+		{E5C5961D-F950-4437-96B4-80D274DDED93} = {E78202D1-2C2F-4947-8735-BEB74C97EF64}
+		{1D2F543C-45FA-496E-8710-E9123B8A1543} = {E5C5961D-F950-4437-96B4-80D274DDED93}
+		{42625A8A-4959-44F9-9BE2-3B73973BA23D} = {28FCF329-7ECD-4570-8E05-08B0DECE7EAF}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32941016-47A9-4F80-A22A-F541009A7110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32941016-47A9-4F80-A22A-F541009A7110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32941016-47A9-4F80-A22A-F541009A7110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32941016-47A9-4F80-A22A-F541009A7110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA6AA07A-814B-4432-AD0B-BBE5A8E40CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD4F82A-FFBC-438D-BFE9-2494577ED745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD4F82A-FFBC-438D-BFE9-2494577ED745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD4F82A-FFBC-438D-BFE9-2494577ED745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD4F82A-FFBC-438D-BFE9-2494577ED745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{489EDD0C-6075-4080-B3F3-716AFB16F8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489EDD0C-6075-4080-B3F3-716AFB16F8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489EDD0C-6075-4080-B3F3-716AFB16F8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489EDD0C-6075-4080-B3F3-716AFB16F8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57549C16-6147-4CA7-865C-CE69F2855A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57549C16-6147-4CA7-865C-CE69F2855A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57549C16-6147-4CA7-865C-CE69F2855A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57549C16-6147-4CA7-865C-CE69F2855A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AABE4B51-3E5B-4470-9558-AD05D7336B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AABE4B51-3E5B-4470-9558-AD05D7336B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AABE4B51-3E5B-4470-9558-AD05D7336B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AABE4B51-3E5B-4470-9558-AD05D7336B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFD6428-7138-410F-980E-20F0D6B6A843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFD6428-7138-410F-980E-20F0D6B6A843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFD6428-7138-410F-980E-20F0D6B6A843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFD6428-7138-410F-980E-20F0D6B6A843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D2F543C-45FA-496E-8710-E9123B8A1543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2F543C-45FA-496E-8710-E9123B8A1543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2F543C-45FA-496E-8710-E9123B8A1543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2F543C-45FA-496E-8710-E9123B8A1543}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
