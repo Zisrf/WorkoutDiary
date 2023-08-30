@@ -33,14 +33,14 @@ public class ActivityServiceTest : ApplicationTestBase
     public async Task GetNonExistentActivity_ThrowException()
     {
         await Assert.ThrowsAsync<NotFoundException>(
-            () => _activityService.GetActivityByIdAsync(Guid.NewGuid()));
+            () => _activityService.GetByIdAsync(Guid.NewGuid()));
     }
 
     [Fact]
     public async Task GetExistingActivity_NoThrow()
     {
-        var exercise = await _exerciseService.CreateExerciseAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
-        var workout = await _workoutService.CreateWorkoutAsync(new DateOnly());
+        var exercise = await _exerciseService.CreateAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
+        var workout = await _workoutService.CreateAsync(new DateOnly());
 
         var activity = await _workoutService.AddActivityAsync(
             workout.Id,
@@ -48,7 +48,7 @@ public class ActivityServiceTest : ApplicationTestBase
             1,
             1);
 
-        await _activityService.GetActivityByIdAsync(activity.Id);
+        await _activityService.GetByIdAsync(activity.Id);
     }
 
     [Theory]
@@ -56,8 +56,8 @@ public class ActivityServiceTest : ApplicationTestBase
     [InlineData(0)]
     public async Task SetInvalidWorkingWeight_ThrowException(double invalidWorkingWeight)
     {
-        var exercise = await _exerciseService.CreateExerciseAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
-        var workout = await _workoutService.CreateWorkoutAsync(new DateOnly());
+        var exercise = await _exerciseService.CreateAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
+        var workout = await _workoutService.CreateAsync(new DateOnly());
 
         var activity = await _workoutService.AddActivityAsync(
             workout.Id,
@@ -66,7 +66,7 @@ public class ActivityServiceTest : ApplicationTestBase
             1);
 
         await Assert.ThrowsAsync<InvalidWorkingWeightException>(
-            () => _activityService.SetActivityWorkingWeightAsync(activity.Id, invalidWorkingWeight));
+            () => _activityService.UpdateWorkingWeightAsync(activity.Id, invalidWorkingWeight));
     }
 
     [Theory]
@@ -74,8 +74,8 @@ public class ActivityServiceTest : ApplicationTestBase
     [InlineData(0)]
     public async Task SetInvalidRepetitionsCount_ThrowException(int invalidRepetitionsCount)
     {
-        var exercise = await _exerciseService.CreateExerciseAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
-        var workout = await _workoutService.CreateWorkoutAsync(new DateOnly());
+        var exercise = await _exerciseService.CreateAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
+        var workout = await _workoutService.CreateAsync(new DateOnly());
 
         var activity = await _workoutService.AddActivityAsync(
             workout.Id,
@@ -84,6 +84,6 @@ public class ActivityServiceTest : ApplicationTestBase
             1);
 
         await Assert.ThrowsAsync<InvalidRepetitionsCountException>(
-            () => _activityService.SetActivityRepetitionsCountAsync(activity.Id, invalidRepetitionsCount));
+            () => _activityService.UpdateRepetitionsCountAsync(activity.Id, invalidRepetitionsCount));
     }
 }

@@ -20,14 +20,14 @@ public class WorkoutServiceTest : ApplicationTestBase
     public async Task GetNonExistentWorkout_ThrowException()
     {
         await Assert.ThrowsAsync<NotFoundException>(
-            () => _workoutService.GetWorkoutByIdAsync(Guid.NewGuid()));
+            () => _workoutService.GetByIdAsync(Guid.NewGuid()));
     }
 
     [Fact]
     public async Task GetExistingWorkout_NoThrow()
     {
-        var workout = await _workoutService.CreateWorkoutAsync(new DateOnly());
+        var workout = await _workoutService.CreateAsync(new DateOnly());
 
-        await _workoutService.GetWorkoutByIdAsync(workout.Id);
+        await _workoutService.GetByIdAsync(workout.Id);
     }
 }

@@ -4,17 +4,17 @@ namespace Zisrf.WorkoutDiary.Core.Application.Contracts.Services;
 
 public interface IWorkoutService
 {
-    Task<WorkoutDto> CreateWorkoutAsync(DateOnly date, CancellationToken cancellationToken = default);
+    Task<WorkoutDto> CreateAsync(DateOnly date, CancellationToken cancellationToken = default);
 
-    Task<IReadOnlyCollection<WorkoutDto>> GetWorkoutsAsync(CancellationToken cancellationToken = default);
+    Task<IReadOnlyCollection<WorkoutDto>> GetAsync(CancellationToken cancellationToken = default);
 
-    Task<WorkoutDto> GetWorkoutByIdAsync(Guid workoutId, CancellationToken cancellationToken = default);
+    Task<WorkoutDto> GetByIdAsync(Guid workoutId, CancellationToken cancellationToken = default);
 
-    Task<IReadOnlyCollection<ActivityDto>> GetWorkoutActivitiesAsync(
+    Task<IReadOnlyCollection<ActivityDto>> GetActivitiesAsync(
         Guid workoutId,
         CancellationToken cancellationToken = default);
 
-    Task SetWorkoutDateAsync(
+    Task UpdateDateAsync(
         Guid workoutId,
         DateOnly newDate,
         CancellationToken cancellationToken = default);
@@ -22,7 +22,7 @@ public interface IWorkoutService
     Task<ActivityDto> AddActivityAsync(
         Guid workoutId,
         Guid excerciseId,
-        int workingWeight,
+        double workingWeight,
         int repetitionsCount,
         CancellationToken cancellationToken = default);
 
@@ -31,5 +31,5 @@ public interface IWorkoutService
         Guid activityId,
         CancellationToken cancellationToken = default);
 
-    Task RemoveWorkoutByIdAsync(Guid workoutId, CancellationToken cancellationToken = default);
+    Task RemoveAsync(Guid workoutId, CancellationToken cancellationToken = default);
 }

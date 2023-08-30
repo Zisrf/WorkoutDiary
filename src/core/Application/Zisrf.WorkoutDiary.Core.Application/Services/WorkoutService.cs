@@ -18,7 +18,7 @@ internal class WorkoutService : IWorkoutService
         _context = context;
     }
 
-    public async Task<WorkoutDto> CreateWorkoutAsync(DateOnly date, CancellationToken cancellationToken = default)
+    public async Task<WorkoutDto> CreateAsync(DateOnly date, CancellationToken cancellationToken = default)
     {
         var workout = new Workout(Guid.NewGuid(), date);
 
@@ -29,7 +29,7 @@ internal class WorkoutService : IWorkoutService
         return workout.ToDto();
     }
 
-    public async Task<IReadOnlyCollection<WorkoutDto>> GetWorkoutsAsync(CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyCollection<WorkoutDto>> GetAsync(CancellationToken cancellationToken = default)
     {
         return await _context.Workouts
             .OrderBy(x => x.Date)
@@ -37,14 +37,14 @@ internal class WorkoutService : IWorkoutService
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<WorkoutDto> GetWorkoutByIdAsync(Guid workoutId, CancellationToken cancellationToken = default)
+    public async Task<WorkoutDto> GetByIdAsync(Guid workoutId, CancellationToken cancellationToken = default)
     {
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
 
         return workout.ToDto();
     }
 
-    public async Task<IReadOnlyCollection<ActivityDto>> GetWorkoutActivitiesAsync(
+    public async Task<IReadOnlyCollection<ActivityDto>> GetActivitiesAsync(
         Guid workoutId,
         CancellationToken cancellationToken = default)
     {
@@ -55,7 +55,7 @@ internal class WorkoutService : IWorkoutService
             .ToList();
     }
 
-    public async Task SetWorkoutDateAsync(Guid workoutId, DateOnly newDate,
+    public async Task UpdateDateAsync(Guid workoutId, DateOnly newDate,
         CancellationToken cancellationToken = default)
     {
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
@@ -68,7 +68,7 @@ internal class WorkoutService : IWorkoutService
     public async Task<ActivityDto> AddActivityAsync(
         Guid workoutId,
         Guid excerciseId,
-        int workingWeight,
+        double workingWeight,
         int repetitionsCount,
         CancellationToken cancellationToken = default)
     {
@@ -105,7 +105,7 @@ internal class WorkoutService : IWorkoutService
         await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task RemoveWorkoutByIdAsync(Guid workoutId, CancellationToken cancellationToken = default)
+    public async Task RemoveAsync(Guid workoutId, CancellationToken cancellationToken = default)
     {
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
 
