@@ -4,24 +4,24 @@ namespace Zisrf.WorkoutDiary.Core.Application.Contracts.Services;
 
 public interface IExerciseService
 {
-    Task<ExerciseDto> CreateExerciseAsync(
+    Task<ExerciseDto> CreateAsync(
         string name,
         string muscleGroup,
         CancellationToken cancellationToken = default);
 
-    Task<IReadOnlyCollection<ExerciseDto>> GetExercisesAsync(CancellationToken cancellationToken = default);
+    Task<IReadOnlyCollection<ExerciseDto>> GetAsync(CancellationToken cancellationToken = default);
 
-    Task<ExerciseDto> GetExerciseByIdAsync(Guid exerciseId, CancellationToken cancellationToken = default);
+    Task<ExerciseDto> GetByIdAsync(Guid exerciseId, CancellationToken cancellationToken = default);
 
-    Task SetExerciseNameAsync(
+    Task UpdateNameAsync(
         Guid exerciseId,
         string newName,
         CancellationToken cancellationToken = default);
 
-    Task SetExerciseMuscleGroupAsync(
+    Task UpdateMuscleGroupAsync(
         Guid exerciseId,
         string newMuscleGroup,
         CancellationToken cancellationToken = default);
 
-    Task RemoveExerciseByIdAsync(Guid exerciseId, CancellationToken cancellationToken = default);
+    Task RemoveAsync(Guid exerciseId, CancellationToken cancellationToken = default);
 }

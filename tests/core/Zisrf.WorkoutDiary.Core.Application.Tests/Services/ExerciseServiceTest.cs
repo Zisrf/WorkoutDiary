@@ -23,23 +23,23 @@ public class ExerciseServiceTest : ApplicationTestBase
     public async Task GetNonExistentExercise_ThrowException()
     {
         await Assert.ThrowsAsync<NotFoundException>(
-            () => _exerciseService.GetExerciseByIdAsync(Guid.NewGuid()));
+            () => _exerciseService.GetByIdAsync(Guid.NewGuid()));
     }
 
     [Fact]
     public async Task GetExistingExercise_NoThrow()
     {
-        var exercise = await _exerciseService.CreateExerciseAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
+        var exercise = await _exerciseService.CreateAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
 
-        await _exerciseService.GetExerciseByIdAsync(exercise.Id);
+        await _exerciseService.GetByIdAsync(exercise.Id);
     }
 
     [Fact]
     public async Task SetEmptyExerciseName_ThrowException()
     {
-        var exercise = await _exerciseService.CreateExerciseAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
+        var exercise = await _exerciseService.CreateAsync(nameof(Exercise), MuscleGroup.Biceps.ToString());
 
         await Assert.ThrowsAsync<InvalidExerciseNameException>(
-            () => _exerciseService.SetExerciseNameAsync(exercise.Id, string.Empty));
+            () => _exerciseService.UpdateNameAsync(exercise.Id, string.Empty));
     }
 }
