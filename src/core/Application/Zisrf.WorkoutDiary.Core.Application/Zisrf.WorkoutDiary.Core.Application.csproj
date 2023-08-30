@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Domain\Zisrf.WorkoutDiary.Core.Domain\Zisrf.WorkoutDiary.Core.Domain.csproj"/>
+        <ProjectReference Include="..\Abstractions\Zisrf.WorkoutDiary.Core.DataAccess.Abstractions\Zisrf.WorkoutDiary.Core.DataAccess.Abstractions.csproj"/>
+        <ProjectReference Include="..\Zisrf.WorkoutDiary.Core.Application.Contracts\Zisrf.WorkoutDiary.Core.Application.Contracts.csproj"/>
+        <ProjectReference Include="..\Zisrf.WorkoutDiary.Core.Application.Exceptions\Zisrf.WorkoutDiary.Core.Application.Exceptions.csproj"/>
+    </ItemGroup>
+
+
+</Project>

@@ -13,14 +13,4 @@ public readonly record struct ExerciseName
     }
 
     public string Value { get; }
-
-    public static implicit operator string(ExerciseName exerciseName)
-    {
-        return exerciseName.Value;
-    }
-
-    public static implicit operator ExerciseName(string value)
-    {
-        return new ExerciseName(value);
-    }
 }

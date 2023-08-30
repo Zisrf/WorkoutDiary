@@ -7,8 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Zisrf.WorkoutDiary.Core.Domain.Exceptions\Zisrf.WorkoutDiary.Core.Domain.Exceptions.csproj"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10"/>
     </ItemGroup>
 
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Domain\Zisrf.WorkoutDiary.Core.Domain\Zisrf.WorkoutDiary.Core.Domain.csproj"/>
+    </ItemGroup>
 
 </Project>

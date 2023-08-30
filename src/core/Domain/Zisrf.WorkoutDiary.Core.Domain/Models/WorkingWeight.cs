@@ -13,14 +13,4 @@ public readonly record struct WorkingWeight
     }
 
     public int Value { get; }
-
-    public static implicit operator int(WorkingWeight workingWeight)
-    {
-        return workingWeight.Value;
-    }
-
-    public static implicit operator WorkingWeight(int value)
-    {
-        return new WorkingWeight(value);
-    }
 }
