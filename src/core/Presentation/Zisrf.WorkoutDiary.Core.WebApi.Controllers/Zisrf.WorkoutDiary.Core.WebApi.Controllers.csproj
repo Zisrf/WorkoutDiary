@@ -16,4 +16,5 @@
         <ProjectReference Include="..\Zisrf.WorkoutDiary.Core.WebApi.Abstractions\Zisrf.WorkoutDiary.Core.WebApi.Abstractions.csproj"/>
     </ItemGroup>
 
+
 </Project>

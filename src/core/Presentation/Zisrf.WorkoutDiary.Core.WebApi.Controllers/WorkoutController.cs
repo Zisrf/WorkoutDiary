@@ -50,6 +50,22 @@ public class WorkoutController : ControllerBase
         return Ok(activities);
     }
 
+    [HttpGet("{workoutId:guid}/involved-muscle-groups")]
+    public async Task<ActionResult<IReadOnlyCollection<ActivityDto>>> GetInvolvedMuscleGroupsAsync(Guid workoutId)
+    {
+        var muscleGroups = await _workoutService.GetInvolvedMuscleGroupsAsync(workoutId, CancellationToken);
+
+        return Ok(muscleGroups);
+    }
+
+    [HttpGet("{workoutId:guid}/not-involved-muscle-groups")]
+    public async Task<ActionResult<IReadOnlyCollection<ActivityDto>>> GetNotInvolvedMuscleGroupsAsync(Guid workoutId)
+    {
+        var muscleGroups = await _workoutService.GetNotInvolvedMuscleGroupsAsync(workoutId, CancellationToken);
+
+        return Ok(muscleGroups);
+    }
+
     [HttpPut("{workoutId:guid}/update-date")]
     public async Task<IActionResult> UpdateDateAsync(Guid workoutId, [FromBody] UpdateWorkoutDateRequest request)
     {

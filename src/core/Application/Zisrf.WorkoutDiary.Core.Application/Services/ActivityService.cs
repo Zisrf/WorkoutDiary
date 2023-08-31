@@ -1,4 +1,5 @@
-﻿using Zisrf.WorkoutDiary.Core.Application.Contracts.Dto;
+﻿using Microsoft.EntityFrameworkCore;
+using Zisrf.WorkoutDiary.Core.Application.Contracts.Dto;
 using Zisrf.WorkoutDiary.Core.Application.Contracts.Services;
 using Zisrf.WorkoutDiary.Core.Application.Extensions;
 using Zisrf.WorkoutDiary.Core.Application.Mapping;
@@ -18,6 +19,10 @@ internal class ActivityService : IActivityService
 
     public async Task<ActivityDto> GetByIdAsync(Guid activityId, CancellationToken cancellationToken = default)
     {
+        await _context.Activities
+            .Include(x => x.Exercise)
+            .LoadAsync(cancellationToken);
+
         var activity = await _context.Activities.GetByIdAsync(activityId, cancellationToken);
 
         return activity.ToDto();

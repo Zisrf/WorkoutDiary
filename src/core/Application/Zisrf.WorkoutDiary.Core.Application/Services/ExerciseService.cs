@@ -5,6 +5,7 @@ using Zisrf.WorkoutDiary.Core.Application.Extensions;
 using Zisrf.WorkoutDiary.Core.Application.Mapping;
 using Zisrf.WorkoutDiary.Core.DataAccess.Abstractions.Contexts;
 using Zisrf.WorkoutDiary.Core.Domain.Entities;
+using Zisrf.WorkoutDiary.Core.Domain.Extensions;
 using Zisrf.WorkoutDiary.Core.Domain.Models;
 
 namespace Zisrf.WorkoutDiary.Core.Application.Services;
@@ -26,7 +27,7 @@ internal class ExerciseService : IExerciseService
         var exercise = new Exercise(
             Guid.NewGuid(),
             new ExerciseName(name),
-            Enum.Parse<MuscleGroup>(muscleGroup));
+            muscleGroup.ToMuscleGroup());
 
         _context.Exercises.Add(exercise);
 
@@ -68,7 +69,7 @@ internal class ExerciseService : IExerciseService
     {
         var exercise = await _context.Exercises.GetByIdAsync(exerciseId, cancellationToken);
 
-        exercise.MuscleGroup = Enum.Parse<MuscleGroup>(newMuscleGroup);
+        exercise.MuscleGroup = newMuscleGroup.ToMuscleGroup();
 
         await _context.SaveChangesAsync(cancellationToken);
     }

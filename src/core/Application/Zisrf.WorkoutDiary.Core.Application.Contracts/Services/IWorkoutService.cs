@@ -14,6 +14,14 @@ public interface IWorkoutService
         Guid workoutId,
         CancellationToken cancellationToken = default);
 
+    Task<IReadOnlyCollection<string>> GetInvolvedMuscleGroupsAsync(
+        Guid workoutId,
+        CancellationToken cancellationToken = default);
+
+    Task<IReadOnlyCollection<string>> GetNotInvolvedMuscleGroupsAsync(
+        Guid workoutId,
+        CancellationToken cancellationToken = default);
+
     Task UpdateDateAsync(
         Guid workoutId,
         DateOnly newDate,

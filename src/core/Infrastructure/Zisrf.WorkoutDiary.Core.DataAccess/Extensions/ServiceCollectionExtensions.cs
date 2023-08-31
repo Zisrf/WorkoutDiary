@@ -13,8 +13,7 @@ public static class ServiceCollectionExtensions
         SqliteDbConfiguration configuration)
     {
         services.AddDbContext<IApplicationDbContext, ApplicationDbContext>(x => x
-            .UseSqlite(configuration.GetConnectionString())
-            .UseLazyLoadingProxies());
+            .UseSqlite(configuration.GetConnectionString()));
 
         return services;
     }
@@ -24,8 +23,7 @@ public static class ServiceCollectionExtensions
         InMemoryDbConfiguration configuration)
     {
         services.AddDbContext<IApplicationDbContext, ApplicationDbContext>(x => x
-            .UseInMemoryDatabase(configuration.DbName)
-            .UseLazyLoadingProxies());
+            .UseInMemoryDatabase(configuration.DbName));
 
         return services;
     }
