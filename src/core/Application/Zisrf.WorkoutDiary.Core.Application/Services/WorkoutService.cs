@@ -5,6 +5,7 @@ using Zisrf.WorkoutDiary.Core.Application.Extensions;
 using Zisrf.WorkoutDiary.Core.Application.Mapping;
 using Zisrf.WorkoutDiary.Core.DataAccess.Abstractions.Contexts;
 using Zisrf.WorkoutDiary.Core.Domain.Entities;
+using Zisrf.WorkoutDiary.Core.Domain.Extensions;
 using Zisrf.WorkoutDiary.Core.Domain.Models;
 
 namespace Zisrf.WorkoutDiary.Core.Application.Services;
@@ -31,6 +32,10 @@ internal class WorkoutService : IWorkoutService
 
     public async Task<IReadOnlyCollection<WorkoutDto>> GetAsync(CancellationToken cancellationToken = default)
     {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
         return await _context.Workouts
             .OrderBy(x => x.Date)
             .Select(x => x.ToDto())
@@ -39,6 +44,10 @@ internal class WorkoutService : IWorkoutService
 
     public async Task<WorkoutDto> GetByIdAsync(Guid workoutId, CancellationToken cancellationToken = default)
     {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
 
         return workout.ToDto();
@@ -48,6 +57,14 @@ internal class WorkoutService : IWorkoutService
         Guid workoutId,
         CancellationToken cancellationToken = default)
     {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
+        await _context.Activities
+            .Include(x => x.Exercise)
+            .LoadAsync(cancellationToken);
+
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
 
         return workout.Activities
@@ -55,7 +72,47 @@ internal class WorkoutService : IWorkoutService
             .ToList();
     }
 
-    public async Task UpdateDateAsync(Guid workoutId, DateOnly newDate,
+    public async Task<IReadOnlyCollection<string>> GetInvolvedMuscleGroupsAsync(Guid workoutId,
+        CancellationToken cancellationToken = default)
+    {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
+        await _context.Activities
+            .Include(x => x.Exercise)
+            .LoadAsync(cancellationToken);
+
+        var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
+
+        return workout
+            .GetInvolvedMuscleGroups()
+            .Select(x => x.ToString())
+            .ToList();
+    }
+
+    public async Task<IReadOnlyCollection<string>> GetNotInvolvedMuscleGroupsAsync(Guid workoutId,
+        CancellationToken cancellationToken = default)
+    {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
+        await _context.Activities
+            .Include(x => x.Exercise)
+            .LoadAsync(cancellationToken);
+
+        var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
+
+        return workout
+            .GetNotInvolvedMuscleGroups()
+            .Select(x => x.ToString())
+            .ToList();
+    }
+
+    public async Task UpdateDateAsync(
+        Guid workoutId,
+        DateOnly newDate,
         CancellationToken cancellationToken = default)
     {
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
@@ -72,6 +129,10 @@ internal class WorkoutService : IWorkoutService
         int repetitionsCount,
         CancellationToken cancellationToken = default)
     {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
         var exercise = await _context.Exercises.GetByIdAsync(excerciseId, cancellationToken);
 
@@ -95,6 +156,10 @@ internal class WorkoutService : IWorkoutService
         Guid activityId,
         CancellationToken cancellationToken = default)
     {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
         var activity = await _context.Activities.GetByIdAsync(activityId, cancellationToken);
 
@@ -107,8 +172,13 @@ internal class WorkoutService : IWorkoutService
 
     public async Task RemoveAsync(Guid workoutId, CancellationToken cancellationToken = default)
     {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
 
+        _context.Activities.RemoveRange(workout.Activities);
         _context.Workouts.Remove(workout);
 
         await _context.SaveChangesAsync(cancellationToken);

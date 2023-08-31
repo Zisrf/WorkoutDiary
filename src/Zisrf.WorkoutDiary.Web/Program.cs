@@ -1,7 +1,16 @@
+using Zisrf.WorkoutDiary.Web.Configurations;
+using Zisrf.WorkoutDiary.Web.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+var configuration = Configuration.Parse(builder.Configuration);
 
-app.MapGet("/", () => "Hello World!");
+builder.Services.Configure(configuration);
 
-app.Run();
+var application = builder.Build();
+
+application.Configure();
+
+await application.InitializeAsync();
+
+await application.RunAsync();

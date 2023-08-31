@@ -22,7 +22,7 @@ public class Activity
 
     public Guid Id { get; }
 
-    public virtual Exercise Exercise { get; }
+    public Exercise Exercise { get; }
 
     public WorkingWeight WorkingWeight { get; set; }
 

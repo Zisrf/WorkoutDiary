@@ -22,7 +22,7 @@ public class Workout
 
     public DateOnly Date { get; set; }
 
-    public virtual IReadOnlyCollection<Activity> Activities => _activities;
+    public IReadOnlyCollection<Activity> Activities => _activities;
 
     public void AddActivity(Activity activity)
     {
