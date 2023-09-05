@@ -3,7 +3,7 @@ using Zisrf.WorkoutDiary.Core.Application.Contracts.Dto;
 using Zisrf.WorkoutDiary.Core.Application.Contracts.Services;
 using Zisrf.WorkoutDiary.Core.WebApi.Abstractions.Requests.Workouts;
 
-namespace Zisrf.WorkoutDiary.Core.WebApi.Controllers;
+namespace Zisrf.WorkoutDiary.Core.WebApi.Controllers.Api;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -23,7 +23,7 @@ public class WorkoutController : ControllerBase
     {
         var workout = await _workoutService.CreateAsync(request.Date, CancellationToken);
 
-        return Ok(request);
+        return Ok(workout);
     }
 
     [HttpGet]
@@ -87,6 +87,19 @@ public class WorkoutController : ControllerBase
         return Ok(activity);
     }
 
+    [HttpPut("{workoutId:guid}/update-activity-order")]
+    public async Task<IActionResult> UpdateActivityOrderAsync(
+        Guid workoutId,
+        [FromBody] UpdateActivityOrderRequest request)
+    {
+        await _workoutService.UpdateActivityOrderAsync(
+            workoutId,
+            request.ActivityId,
+            request.NewOrder,
+            CancellationToken);
+
+        return Ok();
+    }
 
     [HttpPut("{workoutId:guid}/remove-activity")]
     public async Task<IActionResult> RemoveActivityAsync(Guid workoutId, [FromBody] RemoveActivityRequest request)

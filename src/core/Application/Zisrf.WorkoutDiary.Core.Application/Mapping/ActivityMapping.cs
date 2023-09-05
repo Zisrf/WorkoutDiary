@@ -11,6 +11,7 @@ internal static class ActivityMapping
             activity.Id,
             activity.Exercise.Id,
             activity.WorkingWeight.Value,
-            activity.RepetitionsCount.Value);
+            activity.RepetitionsCount.Value,
+            activity.Order.Value);
     }
 }

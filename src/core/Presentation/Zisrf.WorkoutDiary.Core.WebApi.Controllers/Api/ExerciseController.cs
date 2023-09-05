@@ -3,7 +3,7 @@ using Zisrf.WorkoutDiary.Core.Application.Contracts.Dto;
 using Zisrf.WorkoutDiary.Core.Application.Contracts.Services;
 using Zisrf.WorkoutDiary.Core.WebApi.Abstractions.Requests.Exercises;
 
-namespace Zisrf.WorkoutDiary.Core.WebApi.Controllers;
+namespace Zisrf.WorkoutDiary.Core.WebApi.Controllers.Api;
 
 [ApiController]
 [Route("api/[controller]")]
