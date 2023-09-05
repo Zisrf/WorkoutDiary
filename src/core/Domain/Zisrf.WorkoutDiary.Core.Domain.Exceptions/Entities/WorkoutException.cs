@@ -1,4 +1,6 @@
-﻿namespace Zisrf.WorkoutDiary.Core.Domain.Exceptions.Entities;
+﻿using Zisrf.WorkoutDiary.Common.Exceptions.Domain;
+
+namespace Zisrf.WorkoutDiary.Core.Domain.Exceptions.Entities;
 
 public class WorkoutException : DomainException
 {

@@ -6,9 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\..\common\Exceptions\Zisrf.WorkoutDiary.Common.Exceptions.Domain\Zisrf.WorkoutDiary.Common.Exceptions.Domain.csproj"/>
-    </ItemGroup>
-
 </Project>

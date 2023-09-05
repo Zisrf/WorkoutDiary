@@ -26,8 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstraction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.DataAccess.Abstractions", "src\core\Application\Abstractions\Zisrf.WorkoutDiary.Core.DataAccess.Abstractions\Zisrf.WorkoutDiary.Core.DataAccess.Abstractions.csproj", "{57549C16-6147-4CA7-865C-CE69F2855A5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Application.Exceptions", "src\core\Application\Zisrf.WorkoutDiary.Core.Application.Exceptions\Zisrf.WorkoutDiary.Core.Application.Exceptions.csproj", "{5984F018-2D68-4A45-86E9-5C7384DB1526}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E78202D1-2C2F-4947-8735-BEB74C97EF64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Tests.Console", "tests\Zisrf.WorkoutDiary.Tests.Console\Zisrf.WorkoutDiary.Tests.Console.csproj", "{AABE4B51-3E5B-4470-9558-AD05D7336B62}"
@@ -55,6 +53,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Core.WebApi", "src\core\Presentation\Zisrf.WorkoutDiary.Core.WebApi\Zisrf.WorkoutDiary.Core.WebApi.csproj", "{657B71DB-93A5-4590-963F-BF9FF0B334B5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{180EA655-C61B-4756-98B8-BC66A054D3C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exceptions", "Exceptions", "{51FFB9B4-D5B2-413D-90C5-2DBCAAAF465A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Common.Exceptions.Domain", "src\common\Exceptions\Zisrf.WorkoutDiary.Common.Exceptions.Domain\Zisrf.WorkoutDiary.Common.Exceptions.Domain.csproj", "{E20ED057-D881-41AF-8E05-C7C84B61A97A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Common.Exceptions.Application", "src\common\Exceptions\Zisrf.WorkoutDiary.Common.Exceptions.Application\Zisrf.WorkoutDiary.Common.Exceptions.Application.csproj", "{7FE349EA-52FF-4EF9-A04B-5898A9325AC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zisrf.WorkoutDiary.Common.Exceptions.Handling", "src\common\Exceptions\Zisrf.WorkoutDiary.Common.Exceptions.Handling\Zisrf.WorkoutDiary.Common.Exceptions.Handling.csproj", "{D6A974C5-F6F8-4913-9D44-12224AB1C7AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,7 +78,6 @@ Global
 		{489EDD0C-6075-4080-B3F3-716AFB16F8A5} = {B3B69260-7D9F-476B-9F68-61D9BB12CEF9}
 		{686586B3-EB84-4C95-BB95-AB363BD546B1} = {B3B69260-7D9F-476B-9F68-61D9BB12CEF9}
 		{57549C16-6147-4CA7-865C-CE69F2855A5E} = {686586B3-EB84-4C95-BB95-AB363BD546B1}
-		{5984F018-2D68-4A45-86E9-5C7384DB1526} = {B3B69260-7D9F-476B-9F68-61D9BB12CEF9}
 		{AABE4B51-3E5B-4470-9558-AD05D7336B62} = {E78202D1-2C2F-4947-8735-BEB74C97EF64}
 		{D16E1BCE-0061-44E5-BE3F-BAA41AFF006A} = {B7571A1D-5D0B-4E7B-BA40-3E01231A7C9B}
 		{DBFD6428-7138-410F-980E-20F0D6B6A843} = {D16E1BCE-0061-44E5-BE3F-BAA41AFF006A}
@@ -82,6 +89,11 @@ Global
 		{F6F7D6C1-19CF-4DBC-9423-CAC24E994424} = {6CD45D35-28FC-4240-9A5C-E69FB6E6A931}
 		{BD8C8BFB-2406-482B-887E-C96133FE2836} = {6CD45D35-28FC-4240-9A5C-E69FB6E6A931}
 		{657B71DB-93A5-4590-963F-BF9FF0B334B5} = {6CD45D35-28FC-4240-9A5C-E69FB6E6A931}
+		{180EA655-C61B-4756-98B8-BC66A054D3C6} = {18EC3E32-AA61-4747-BA9A-EBDC5186E788}
+		{51FFB9B4-D5B2-413D-90C5-2DBCAAAF465A} = {180EA655-C61B-4756-98B8-BC66A054D3C6}
+		{E20ED057-D881-41AF-8E05-C7C84B61A97A} = {51FFB9B4-D5B2-413D-90C5-2DBCAAAF465A}
+		{7FE349EA-52FF-4EF9-A04B-5898A9325AC2} = {51FFB9B4-D5B2-413D-90C5-2DBCAAAF465A}
+		{D6A974C5-F6F8-4913-9D44-12224AB1C7AE} = {51FFB9B4-D5B2-413D-90C5-2DBCAAAF465A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{32941016-47A9-4F80-A22A-F541009A7110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -104,10 +116,6 @@ Global
 		{57549C16-6147-4CA7-865C-CE69F2855A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57549C16-6147-4CA7-865C-CE69F2855A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57549C16-6147-4CA7-865C-CE69F2855A5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5984F018-2D68-4A45-86E9-5C7384DB1526}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AABE4B51-3E5B-4470-9558-AD05D7336B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AABE4B51-3E5B-4470-9558-AD05D7336B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AABE4B51-3E5B-4470-9558-AD05D7336B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -136,5 +144,17 @@ Global
 		{657B71DB-93A5-4590-963F-BF9FF0B334B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{657B71DB-93A5-4590-963F-BF9FF0B334B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{657B71DB-93A5-4590-963F-BF9FF0B334B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20ED057-D881-41AF-8E05-C7C84B61A97A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20ED057-D881-41AF-8E05-C7C84B61A97A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20ED057-D881-41AF-8E05-C7C84B61A97A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20ED057-D881-41AF-8E05-C7C84B61A97A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE349EA-52FF-4EF9-A04B-5898A9325AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE349EA-52FF-4EF9-A04B-5898A9325AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE349EA-52FF-4EF9-A04B-5898A9325AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE349EA-52FF-4EF9-A04B-5898A9325AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A974C5-F6F8-4913-9D44-12224AB1C7AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A974C5-F6F8-4913-9D44-12224AB1C7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A974C5-F6F8-4913-9D44-12224AB1C7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A974C5-F6F8-4913-9D44-12224AB1C7AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

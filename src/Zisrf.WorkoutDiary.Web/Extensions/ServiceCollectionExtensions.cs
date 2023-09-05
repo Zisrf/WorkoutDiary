@@ -1,4 +1,5 @@
-﻿using Zisrf.WorkoutDiary.Core.WebApi.Controllers.Extensions;
+﻿using Zisrf.WorkoutDiary.Common.Exceptions.Handling.Extensions;
+using Zisrf.WorkoutDiary.Core.WebApi.Controllers.Extensions;
 using Zisrf.WorkoutDiary.Core.WebApi.Extensions;
 using Zisrf.WorkoutDiary.Web.Configurations;
 
@@ -13,6 +14,8 @@ public static class ServiceCollectionExtensions
         services
             .AddControllers()
             .WithCoreControllers();
+
+        services.AddMiddlewares();
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();

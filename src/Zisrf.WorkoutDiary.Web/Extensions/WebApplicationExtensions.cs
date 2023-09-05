@@ -1,4 +1,5 @@
-﻿using Zisrf.WorkoutDiary.Core.WebApi.Extensions;
+﻿using Zisrf.WorkoutDiary.Common.Exceptions.Handling.Extensions;
+using Zisrf.WorkoutDiary.Core.WebApi.Extensions;
 
 namespace Zisrf.WorkoutDiary.Web.Extensions;
 
@@ -11,6 +12,8 @@ public static class WebApplicationExtensions
             application.UseSwagger();
             application.UseSwaggerUI();
         }
+
+        application.UseExceptionHandling();
 
         application.UseHttpsRedirection();
 

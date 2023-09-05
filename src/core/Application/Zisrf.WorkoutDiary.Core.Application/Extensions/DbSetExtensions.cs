@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Zisrf.WorkoutDiary.Core.Application.Exceptions.DataAccess;
+using Zisrf.WorkoutDiary.Common.Exceptions.Application.DataAccess;
 
 namespace Zisrf.WorkoutDiary.Core.Application.Extensions;
 

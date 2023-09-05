@@ -1,4 +1,6 @@
-﻿namespace Zisrf.WorkoutDiary.Core.Domain.Exceptions.Models;
+﻿using Zisrf.WorkoutDiary.Common.Exceptions.Domain;
+
+namespace Zisrf.WorkoutDiary.Core.Domain.Exceptions.Models;
 
 public class InvalidActivityOrderException : DomainException
 {

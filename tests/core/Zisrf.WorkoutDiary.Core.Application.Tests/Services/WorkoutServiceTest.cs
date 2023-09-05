@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Xunit;
+using Zisrf.WorkoutDiary.Common.Exceptions.Application.DataAccess;
 using Zisrf.WorkoutDiary.Core.Application.Contracts.Services;
-using Zisrf.WorkoutDiary.Core.Application.Exceptions.DataAccess;
 
 namespace Zisrf.WorkoutDiary.Core.Application.Tests.Services;
 
