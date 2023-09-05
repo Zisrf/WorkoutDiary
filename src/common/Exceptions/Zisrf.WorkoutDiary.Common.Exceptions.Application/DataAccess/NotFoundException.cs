@@ -1,4 +1,4 @@
-﻿namespace Zisrf.WorkoutDiary.Core.Application.Exceptions.DataAccess;
+﻿namespace Zisrf.WorkoutDiary.Common.Exceptions.Application.DataAccess;
 
 public class NotFoundException : ApplicationException
 {
@@ -8,6 +8,7 @@ public class NotFoundException : ApplicationException
     }
 
     public static NotFoundException ForEntity<TEntity>(Guid entityId)
+        where TEntity : class
     {
         return new NotFoundException($"Entity of type {typeof(TEntity).Name} with id {entityId} was not found");
     }

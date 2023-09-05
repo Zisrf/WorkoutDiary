@@ -1,4 +1,5 @@
-﻿using Zisrf.WorkoutDiary.Core.DataAccess.Extensions;
+﻿using Zisrf.WorkoutDiary.Common.Exceptions.Handling.Extensions;
+using Zisrf.WorkoutDiary.Core.WebApi.Extensions;
 
 namespace Zisrf.WorkoutDiary.Web.Extensions;
 
@@ -12,7 +13,7 @@ public static class WebApplicationExtensions
             application.UseSwaggerUI();
         }
 
-        // application.UseExceptionHandling();
+        application.UseExceptionHandling();
 
         application.UseHttpsRedirection();
 
@@ -32,6 +33,6 @@ public static class WebApplicationExtensions
     {
         using var scope = application.Services.CreateScope();
 
-        await scope.InitializeDbAsync();
+        await scope.InitializeCoreAsync();
     }
 }

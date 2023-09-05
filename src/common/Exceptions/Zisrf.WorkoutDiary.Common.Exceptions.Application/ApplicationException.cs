@@ -1,4 +1,4 @@
-﻿namespace Zisrf.WorkoutDiary.Core.Application.Exceptions;
+﻿namespace Zisrf.WorkoutDiary.Common.Exceptions.Application;
 
 public abstract class ApplicationException : Exception
 {

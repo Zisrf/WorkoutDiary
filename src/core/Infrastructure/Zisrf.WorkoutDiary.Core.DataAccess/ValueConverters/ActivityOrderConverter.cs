@@ -3,10 +3,10 @@ using Zisrf.WorkoutDiary.Core.Domain.Models;
 
 namespace Zisrf.WorkoutDiary.Core.DataAccess.ValueConverters;
 
-internal class ExerciseNameConverter : ValueConverter<ExerciseName, string>
+internal class ActivityOrderConverter : ValueConverter<ActivityOrder, int>
 {
-    public ExerciseNameConverter()
-        : base(x => x.Value, x => new ExerciseName(x))
+    public ActivityOrderConverter()
+        : base(x => x.Value, x => new ActivityOrder(x))
     {
     }
 }

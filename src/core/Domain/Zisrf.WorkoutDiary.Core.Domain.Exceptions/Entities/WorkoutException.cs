@@ -1,4 +1,6 @@
-﻿namespace Zisrf.WorkoutDiary.Core.Domain.Exceptions.Entities;
+﻿using Zisrf.WorkoutDiary.Common.Exceptions.Domain;
+
+namespace Zisrf.WorkoutDiary.Core.Domain.Exceptions.Entities;
 
 public class WorkoutException : DomainException
 {
@@ -7,12 +9,7 @@ public class WorkoutException : DomainException
     {
     }
 
-    public static WorkoutException OnAddExistingActivity(Guid workoutId, Guid activityId)
-    {
-        return new WorkoutException($"Workout {workoutId} already have activity {activityId}");
-    }
-
-    public static WorkoutException OnRemoveNonExistentActivity(Guid workoutId, Guid activityId)
+    public static WorkoutException OnGetNonExistentActivity(Guid workoutId, Guid activityId)
     {
         return new WorkoutException($"Workout {workoutId} doesn't have activity {activityId}");
     }

@@ -34,6 +34,12 @@ public interface IWorkoutService
         int repetitionsCount,
         CancellationToken cancellationToken = default);
 
+    Task UpdateActivityOrderAsync(
+        Guid workoutId,
+        Guid activityId,
+        int newOrder,
+        CancellationToken cancellationToken = default);
+
     Task RemoveActivityAsync(
         Guid workoutId,
         Guid activityId,

@@ -6,7 +6,7 @@ namespace Zisrf.WorkoutDiary.Core.DataAccess.Extensions;
 
 public static class ServiceScopeExtensions
 {
-    public static async Task InitializeDbAsync(this IServiceScope scope)
+    public static async Task InitializeApplicationDbAsync(this IServiceScope scope)
     {
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 

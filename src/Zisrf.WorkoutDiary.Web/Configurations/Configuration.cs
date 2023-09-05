@@ -1,4 +1,5 @@
-﻿using Zisrf.WorkoutDiary.Web.Exceptions;
+﻿using Zisrf.WorkoutDiary.Core.WebApi.Configurations;
+using Zisrf.WorkoutDiary.Web.Exceptions;
 
 namespace Zisrf.WorkoutDiary.Web.Configurations;
 

@@ -6,8 +6,7 @@ namespace Zisrf.WorkoutDiary.Core.DataAccess.ValueConverters;
 internal class RepetitionsCountConverter : ValueConverter<RepetitionsCount, int>
 {
     public RepetitionsCountConverter()
-        : base(x => x.Value,
-            x => new RepetitionsCount(x))
+        : base(x => x.Value, x => new RepetitionsCount(x))
     {
     }
 }

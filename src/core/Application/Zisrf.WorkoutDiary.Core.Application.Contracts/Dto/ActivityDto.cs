@@ -4,4 +4,5 @@ public record ActivityDto(
     Guid Id,
     Guid ExerciseId,
     double WorkingWeight,
-    int RepetitionsCount);
+    int RepetitionsCount,
+    int Order);

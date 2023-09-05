@@ -1,7 +1,7 @@
 ﻿using Zisrf.WorkoutDiary.Core.Domain.Models;
 
-var s = "biceps";
+var x = new ActivityOrder(1);
 
-var muscleGroup = Enum.Parse<MuscleGroup>(s);
+--x;
 
-Console.WriteLine(muscleGroup.ToString());
+Console.WriteLine(x.Value);

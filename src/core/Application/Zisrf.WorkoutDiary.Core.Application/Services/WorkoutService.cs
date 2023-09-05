@@ -136,19 +136,35 @@ internal class WorkoutService : IWorkoutService
         var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
         var exercise = await _context.Exercises.GetByIdAsync(excerciseId, cancellationToken);
 
-        var activity = new Activity(
+        var activity = workout.CreateActivity(
             Guid.NewGuid(),
             exercise,
             new WorkingWeight(workingWeight),
             new RepetitionsCount(repetitionsCount));
-
-        workout.AddActivity(activity);
 
         _context.Activities.Add(activity);
 
         await _context.SaveChangesAsync(cancellationToken);
 
         return activity.ToDto();
+    }
+
+    public async Task UpdateActivityOrderAsync(
+        Guid workoutId,
+        Guid activityId,
+        int newOrder,
+        CancellationToken cancellationToken = default)
+    {
+        await _context.Workouts
+            .Include(x => x.Activities)
+            .LoadAsync(cancellationToken);
+
+        var workout = await _context.Workouts.GetByIdAsync(workoutId, cancellationToken);
+        var activity = await _context.Activities.GetByIdAsync(activityId, cancellationToken);
+
+        workout.ChangeActivityOrder(activity, new ActivityOrder(newOrder));
+
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
     public async Task RemoveActivityAsync(
