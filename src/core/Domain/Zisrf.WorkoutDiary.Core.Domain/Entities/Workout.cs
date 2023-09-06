@@ -60,20 +60,44 @@ public class Workout
         if (_activities.Contains(activity) is false)
             throw WorkoutException.OnGetNonExistentActivity(Id, activity.Id);
 
+        IncreaseActivityOrdersInRange(newOrder, activity.Order);
+        DecreaseActivityOrdersInRange(activity.Order, newOrder);
+
+        activity.Order = newOrder;
+    }
+
+    public IReadOnlyCollection<MuscleGroup> GetInvolvedMuscleGroups()
+    {
+        return _activities
+            .Select(x => x.Exercise.MuscleGroup)
+            .DistinctBy(x => x)
+            .ToList();
+    }
+
+    public IReadOnlyCollection<MuscleGroup> GetNotInvolvedMuscleGroups()
+    {
+        return Enum.GetValues<MuscleGroup>()
+            .Except(GetInvolvedMuscleGroups())
+            .ToList();
+    }
+
+    private void IncreaseActivityOrdersInRange(ActivityOrder left, ActivityOrder right)
+    {
         var previousActivities = _activities
-            .Where(x => x.Order >= newOrder && x.Order < activity.Order)
+            .Where(x => x.Order >= left && x.Order < right)
             .ToList();
 
         foreach (var nextActivity in previousActivities)
             ++nextActivity.Order;
+    }
 
+    private void DecreaseActivityOrdersInRange(ActivityOrder left, ActivityOrder right)
+    {
         var nextActivities = _activities
-            .Where(x => x.Order > activity.Order && x.Order <= newOrder)
+            .Where(x => x.Order > left && x.Order <= right)
             .ToList();
 
         foreach (var nextActivity in nextActivities)
             --nextActivity.Order;
-
-        activity.Order = newOrder;
     }
 }
