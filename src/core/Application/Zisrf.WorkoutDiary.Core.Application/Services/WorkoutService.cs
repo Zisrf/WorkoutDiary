@@ -5,7 +5,6 @@ using Zisrf.WorkoutDiary.Core.Application.Extensions;
 using Zisrf.WorkoutDiary.Core.Application.Mapping;
 using Zisrf.WorkoutDiary.Core.DataAccess.Abstractions.Contexts;
 using Zisrf.WorkoutDiary.Core.Domain.Entities;
-using Zisrf.WorkoutDiary.Core.Domain.Extensions;
 using Zisrf.WorkoutDiary.Core.Domain.Models;
 
 namespace Zisrf.WorkoutDiary.Core.Application.Services;
@@ -72,7 +71,8 @@ internal class WorkoutService : IWorkoutService
             .ToList();
     }
 
-    public async Task<IReadOnlyCollection<string>> GetInvolvedMuscleGroupsAsync(Guid workoutId,
+    public async Task<IReadOnlyCollection<string>> GetInvolvedMuscleGroupsAsync(
+        Guid workoutId,
         CancellationToken cancellationToken = default)
     {
         await _context.Workouts
@@ -91,7 +91,8 @@ internal class WorkoutService : IWorkoutService
             .ToList();
     }
 
-    public async Task<IReadOnlyCollection<string>> GetNotInvolvedMuscleGroupsAsync(Guid workoutId,
+    public async Task<IReadOnlyCollection<string>> GetNotInvolvedMuscleGroupsAsync(
+        Guid workoutId,
         CancellationToken cancellationToken = default)
     {
         await _context.Workouts
