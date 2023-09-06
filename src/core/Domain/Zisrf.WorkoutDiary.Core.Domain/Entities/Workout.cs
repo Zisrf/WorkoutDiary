@@ -83,21 +83,21 @@ public class Workout
 
     private void IncreaseActivityOrdersInRange(ActivityOrder left, ActivityOrder right)
     {
-        var previousActivities = _activities
+        var activities = _activities
             .Where(x => x.Order >= left && x.Order < right)
             .ToList();
 
-        foreach (var nextActivity in previousActivities)
-            ++nextActivity.Order;
+        foreach (var activity in activities)
+            ++activity.Order;
     }
 
     private void DecreaseActivityOrdersInRange(ActivityOrder left, ActivityOrder right)
     {
-        var nextActivities = _activities
+        var activities = _activities
             .Where(x => x.Order > left && x.Order <= right)
             .ToList();
 
-        foreach (var nextActivity in nextActivities)
-            --nextActivity.Order;
+        foreach (var activity in activities)
+            --activity.Order;
     }
 }
